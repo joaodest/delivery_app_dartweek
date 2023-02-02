@@ -9,28 +9,41 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Splash"),
-      ),
-      body: Column(
+        body: ColoredBox(
+      color: const Color(0xff140E0E),
+      child: Stack(
         children: [
-          Container(),
-          DeliveryButton(
-            height: 200,
-            width: 200,
-            onPressed: (){},
-            label: Env.instance['backend_base_url'] ?? '',
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              child: Image.asset(
+                'assets/images/lanche.png',
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          Container(
-            color: Colors.red,
-            width: context.percentWidth(.5),
-            height: 200,
-          ),
-          TextFormField(
-            decoration: InputDecoration(labelText: 'text'),
-          ),
+          Center(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: context.percentHeight(.3),
+                ),
+                Image.asset('assets/images/logo.png'),
+                SizedBox(
+                  height: 80,
+                ),
+                DeliveryButton(
+                  width: context.percentWidth(.6),
+                  label: 'ACESSAR',
+                  onPressed: () {
+                    Navigator.of(context).popAndPushNamed("/home");
+                  },
+                ),
+              ],
+            ),
+          )
         ],
       ),
-    );
+    ));
   }
 }
