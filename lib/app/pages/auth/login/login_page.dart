@@ -77,6 +77,7 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                         height: 30,
                       ),
                       TextFormField(
+                        obscureText: true,
                         controller: passwordEC,
                         decoration: InputDecoration(labelText: "Senha"),
                         validator: Validatorless.multiple([

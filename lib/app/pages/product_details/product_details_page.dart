@@ -34,39 +34,39 @@ class _ProductDetailsPageState
 
   void _showConfirmDelete(int amount) {
     showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) {
-          return AlertDialog(
-            title: Text("Deseja excluir o produto?"),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text(
-                  'Cancelar',
-                  style:
-                      context.textStyles.textBold.copyWith(color: Colors.red),
-                ),
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Deseja excluir o produto?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                'Cancelar',
+                style: context.textStyles.textBold.copyWith(color: Colors.red),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).pop(
-                    OrderProductDto(
-                      product: widget.product,
-                      amount: amount,
-                    ),
-                  );
-                },
-                child: Text('Confirmar',
-                    style: context.textStyles.textBold
-                        .copyWith(color: Colors.black54)),
-              ),
-            ],
-          );
-        });
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.of(context).pop(
+                  OrderProductDto(
+                    product: widget.product,
+                    amount: amount,
+                  ),
+                );
+              },
+              child: Text('Confirmar',
+                  style: context.textStyles.textBold
+                      .copyWith(color: Colors.black54)),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override

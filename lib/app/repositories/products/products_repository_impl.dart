@@ -20,7 +20,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
       }).toList();
     } on DioError catch (e, s) {
       log('Erro ao buscar produtos', error: e, stackTrace: s);
-      throw RepositoryException(message: 'Erro ao buscar produtos');
+      throw RepositoryException(message: 'Erro encontrado ao buscar seus produtos');
     }
   }
 }
